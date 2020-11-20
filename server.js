@@ -11,6 +11,8 @@ app.use(express.json()); // instead body parser
 app.use(cors());
 app.use(cookieParser());
 
+// import routes
+const authRoutes = require("./routes/user");
 
 // connection of database
 mongoose
@@ -29,3 +31,12 @@ mongoose
     console.log(err);
   });
 // =========================================
+
+// testing route
+app.get("/", (req, res) => {
+    res.send(`This is for TEST, server is running on port ${port}`);
+  });
+  
+  // register routes
+app.use("/app", authRoutes);
+  
