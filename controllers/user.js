@@ -29,7 +29,6 @@ const handleError = (err) => {
   };
   
 
-
 // user login controllers
 module.exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
