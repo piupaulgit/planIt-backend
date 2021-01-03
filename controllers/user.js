@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const { sendResponseToFrontend } = require("../shared/handleResponse");
+const { sendResponseToFrontend, handleLoginError } = require("../shared/handleResponse");
 
 
 // user register controller
@@ -40,6 +40,6 @@ module.exports.loginUser = async (req, res) => {
     const { _id, role } = user;
     res.status(200).json({ token: token, user: { _id, email, role } });
   } catch (err) {
-    sendResponseFrontend(res, 400, handleLoginError(err), true);
+    sendResponseToFrontend(res, 400, handleLoginError(err), true);
   }
 };

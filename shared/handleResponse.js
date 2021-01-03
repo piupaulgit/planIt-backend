@@ -5,3 +5,8 @@ module.exports.sendResponseToFrontend = (res, statusCode, data, errorFlag, messa
         message: message
     })
 }
+
+// handle for login
+module.exports.handleLoginError = (err) => {
+    return err.message;
+  };
