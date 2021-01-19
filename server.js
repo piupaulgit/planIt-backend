@@ -13,6 +13,7 @@ app.use(cookieParser());
 
 // import routes
 const authRoutes = require("./routes/user");
+const clientRoutes = require("./routes/client");
 
 // connection of database
 mongoose
@@ -39,4 +40,5 @@ app.get("/", (req, res) => {
   
   // register routes
 app.use("/app", authRoutes);
+app.use("/app", clientRoutes);
   

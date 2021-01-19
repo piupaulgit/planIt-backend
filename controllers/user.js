@@ -40,6 +40,6 @@ module.exports.loginUser = async (req, res) => {
     const { _id, role } = user;
     res.status(200).json({ token: token, user: { _id, email, role } });
   } catch (err) {
-    sendResponseToFrontend(res, 400, handleLoginError(err), true);
+    sendResponseToFrontend(res, 404, handleLoginError(err), true);
   }
 };
